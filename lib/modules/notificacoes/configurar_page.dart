@@ -10,7 +10,7 @@ class ConfigurarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<ConfiguracaoCubit>(context);
     bloc.init();
-    print("BUILD");
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[200],
@@ -316,7 +316,6 @@ class ConfigurarPage extends StatelessWidget {
               BlocBuilder<ConfiguracaoCubit, Configuracao>(
                 bloc: bloc,
                 builder: (ctx, state) {
-                  print("BUILD");
                   return Container(
                     height: 24,
                     child: Padding(
