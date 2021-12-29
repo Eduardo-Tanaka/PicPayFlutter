@@ -8,6 +8,7 @@ class NotificacoesAppBarWidget extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
+      elevation: 1,
       title: Text(
         "Notificações",
         style: TextStyle(
@@ -20,7 +21,9 @@ class NotificacoesAppBarWidget extends StatelessWidget
             primary: Colors.grey[900],
             shape: CircleBorder(),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/configurar");
+          },
           child: Text(
             "Configurar",
             style: TextStyle(

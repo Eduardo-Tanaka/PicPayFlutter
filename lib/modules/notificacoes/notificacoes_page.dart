@@ -14,12 +14,15 @@ class NotificacoesPage extends StatelessWidget {
       child: ListView.separated(
         itemCount: 40,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 8,
+          return InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+              child: NotificacaoWidget(),
             ),
-            child: NotificacaoWidget(),
           );
         },
         separatorBuilder: (context, index) {

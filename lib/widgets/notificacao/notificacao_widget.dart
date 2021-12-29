@@ -15,7 +15,9 @@ class NotificacaoWidget extends StatelessWidget {
           // lista de emoji https://www.fileformat.info/info/emoji/list.htm
           Text(
             "Termine agora de pedir seu cartão sem anuidade. \uD83D\uDCB3	Complete seu cadastro e peça seu PicPay Card crédito!",
-            style: TextStyle(fontWeight: FontWeight.w300),
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+            ),
           ),
           SizedBox(
             height: 12,

@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
             tooltip: 'Pagar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_outlined),
+            icon: Icon(Icons.notifications),
             label: 'Notificações',
           ),
           BottomNavigationBarItem(
