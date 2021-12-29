@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:picpay/modules/carteira/carteira_app_bar_widget.dart';
 import 'package:picpay/modules/carteira/carteira_page.dart';
+import 'package:picpay/modules/inicio/inicio_app_bar_widget.dart';
 import 'package:picpay/modules/inicio/inicio_page.dart';
-import 'package:picpay/modules/notificacoes/notificacaoes_page.dart';
+import 'package:picpay/modules/notificacoes/notificacoes_page.dart';
+import 'package:picpay/modules/notificacoes/notificacoes_app_bar_widget.dart';
+import 'package:picpay/modules/pagar/pagar_app_bar_widget.dart';
 import 'package:picpay/modules/pagar/pagar_page.dart';
+import 'package:picpay/modules/store/store_app_bar_widget.dart';
 import 'package:picpay/modules/store/store_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +20,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<PreferredSizeWidget> _widgetAppBars = <PreferredSizeWidget>[
+    InicioAppBarWidget(),
+    CarteiraAppBarWidget(),
+    PagaAppBarWidget(),
+    NotificacoesAppBarWidget(),
+    StoreAppBarWidget(),
+  ];
+
+  static const List<Widget> _widgetPages = <Widget>[
     InicioPage(),
     CarteiraPage(),
     PagarPage(),
@@ -32,8 +45,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(child: _widgetOptions.elementAt(_selectedIndex)),
+      appBar: _widgetAppBars.elementAt(_selectedIndex),
+      body: Container(child: _widgetPages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         iconSize: 28,
