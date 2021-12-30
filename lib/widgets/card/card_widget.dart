@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CardPagarWidget extends StatelessWidget {
+class CardWidget extends StatelessWidget {
   final IconData icon;
   final String texto;
   final VoidCallback onTap;
 
-  const CardPagarWidget({
+  const CardWidget({
     Key? key,
     required this.icon,
     required this.texto,

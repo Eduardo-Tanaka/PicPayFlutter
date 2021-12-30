@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NotificacoesAppBarWidget extends StatelessWidget
     with PreferredSizeWidget {
@@ -7,6 +8,12 @@ class NotificacoesAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backwardsCompatibility: false,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.grey[200],
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
+      ),
       backgroundColor: Colors.white,
       elevation: 1,
       title: Text(

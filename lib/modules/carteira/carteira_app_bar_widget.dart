@@ -5,7 +5,7 @@ class CarteiraAppBarWidget extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar();
+    return SizedBox();
   }
 
   @override

@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
           _selectedIndex == 2 ? null : _widgetAppBars.elementAt(_selectedIndex),
       body: Container(child: _widgetPages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         iconSize: 28,
         selectedItemColor: Colors.green[900],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class StoreAppBarWidget extends StatelessWidget with PreferredSizeWidget {
   StoreAppBarWidget({Key? key}) : super(key: key);
@@ -6,6 +7,12 @@ class StoreAppBarWidget extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backwardsCompatibility: false,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.grey[200],
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
+      ),
       backgroundColor: Colors.white,
       elevation: 0,
       leading: Icon(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:picpay/model/card_pagar.dart';
-import 'package:picpay/widgets/pagar/card_pagar_widget.dart';
+import 'package:picpay/widgets/card/card_widget.dart';
 
 final cards = [
   CardPagar(icon: Icons.qr_code_scanner, texto: "QR Code"),
@@ -31,6 +32,12 @@ class PagarPage extends StatelessWidget {
         physics: AlwaysScrollableScrollPhysics(),
         slivers: [
           SliverAppBar(
+            backwardsCompatibility: false,
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.grey[200],
+              statusBarBrightness: Brightness.dark,
+              statusBarIconBrightness: Brightness.dark,
+            ),
             elevation: 1,
             pinned: true,
             backgroundColor: Colors.white,
@@ -94,7 +101,7 @@ class PagarPage extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: cards.length,
                         itemBuilder: (context, position) {
-                          return CardPagarWidget(
+                          return CardWidget(
                             icon: cards.elementAt(position).icon,
                             texto: cards.elementAt(position).texto,
                             onTap: () {},
@@ -181,7 +188,7 @@ class PagarPage extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: cardsServicos.length,
                         itemBuilder: (context, position) {
-                          return CardPagarWidget(
+                          return CardWidget(
                             icon: cardsServicos.elementAt(position).icon,
                             texto: cardsServicos.elementAt(position).texto,
                             onTap: () {},
