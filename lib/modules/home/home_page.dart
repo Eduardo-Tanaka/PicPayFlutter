@@ -45,7 +45,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _widgetAppBars.elementAt(_selectedIndex),
+      appBar:
+          _selectedIndex == 2 ? null : _widgetAppBars.elementAt(_selectedIndex),
       body: Container(child: _widgetPages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

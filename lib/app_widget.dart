@@ -36,7 +36,9 @@ class AppWidget extends StatelessWidget {
         supportedLocales: [
           const Locale('pt', 'BR'),
         ],
-        theme: ThemeData(),
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+        ),
         title: 'PicPay',
         initialRoute: "/home",
         routes: {
