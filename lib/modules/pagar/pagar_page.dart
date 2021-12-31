@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:picpay/model/card_pagar.dart';
 import 'package:picpay/widgets/card/card_widget.dart';
+import 'package:picpay/widgets/search/search_widget.dart';
 
 final cards = [
   CardPagar(icon: Icons.qr_code_scanner, texto: "QR Code"),
@@ -65,33 +66,7 @@ class PagarPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.grey),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.search_rounded,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                              ),
-                              child: Text(
-                                "O que você quer pagar?",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: SearchWidget(),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12),
