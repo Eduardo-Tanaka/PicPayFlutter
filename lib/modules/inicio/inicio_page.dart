@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:picpay/model/card_image.dart';
 import 'package:picpay/model/card_pagar.dart';
 import 'package:picpay/widgets/card/card_image_widget.dart';
 import 'package:picpay/widgets/card/card_inicio_widget.dart';
+import 'package:picpay/widgets/card/card_lancamentos_widget.dart';
 import 'package:picpay/widgets/search/search_widget.dart';
 
 final cardsInicio = [
@@ -28,6 +30,85 @@ final cardsSugestoes = [
   CardPagar(icon: Icons.ac_unit, texto: "Netflix"),
   CardPagar(icon: Icons.ac_unit, texto: "Sky TV Pré-pago"),
   CardPagar(icon: Icons.ac_unit, texto: "Razer Gold"),
+];
+
+final cardVantagens = [
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Parcele boletos em até 12x no cartão de crédito",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Deixe seu dinheiro rendendo 120% do CDI",
+  ),
+  CardImage(
+      image: 'Icons.ac_unit',
+      title: "<h1><b>Cashbackdd:</b> pague e ganhe dinheiro de volta</h1>"),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Adicione dinheiro e pague o que quiser",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Encontre e pague locais próximmos a você",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Pix: transfira ou receba dinheiro a qualquer hora",
+  ),
+];
+
+final cardCompra = [
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Recarga de celular",
+    subtitle: "Vivo, Claro, Tim, Oi e outras",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "iFood",
+    subtitle: 'Compre créditos e faça seu pedido',
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Google Play",
+    subtitle: 'Compre Gift Card e aproveite a loja do Google',
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "GG Credits",
+    subtitle: 'Gift Card para Free Fire e outros jogos',
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "PS Store",
+    subtitle: 'Compre Gift Card para a loja do Playstation',
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: 'Netflix',
+    subtitle: "Compre créditos e assista filmes e séries",
+  ),
+];
+
+final cardLojasCashback = [
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Casas Bahia",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Netshoes",
+  ),
+  CardImage(image: 'Icons.ac_unit', title: "O Boticário"),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Fast Shop",
+  ),
+  CardImage(
+    image: 'Icons.ac_unit',
+    title: "Kabum",
+  ),
 ];
 
 class InicioPage extends StatelessWidget {
@@ -205,67 +286,385 @@ class InicioPage extends StatelessWidget {
                 ),
               ],
             ),
-            SearchWidget(),
             Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 14,
+                horizontal: 12,
               ),
-              child: Text(
-                "Sugestões para você",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: cardsSugestoes.length,
-                itemBuilder: (context, position) {
-                  return CardImageWidget(
-                    icon: cardsSugestoes.elementAt(position).icon,
-                    texto: cardsSugestoes.elementAt(position).texto,
-                    onTap: () {},
-                  );
-                },
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Card(
-              child: ListTile(
-                onTap: () {},
-                leading: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.domain_verification_outlined,
-                      color: Colors.green,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SearchWidget(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 14,
                     ),
-                  ],
-                ),
-                title: Text(
-                  "Seleção especial",
-                  style: TextStyle(
-                    color: Colors.black54,
+                    child: Text(
+                      "Sugestões para você",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
-                ),
-                subtitle: Text(
-                  "Promoções disponíveis",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  SizedBox(
+                    height: 100,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cardsSugestoes.length,
+                      itemBuilder: (context, position) {
+                        return CardImageWidget(
+                          icon: cardsSugestoes.elementAt(position).icon,
+                          texto: cardsSugestoes.elementAt(position).texto,
+                          onTap: () {},
+                        );
+                      },
+                    ),
                   ),
-                ),
-                trailing: Icon(
-                  Icons.chevron_right,
-                  color: Colors.green,
-                ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.domain_verification_outlined,
+                            color: Colors.green,
+                          ),
+                        ],
+                      ),
+                      title: Text(
+                        "Seleção especial",
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "Promoções disponíveis",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      trailing: Icon(
+                        Icons.chevron_right,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
               ),
-            )
+            ),
+            Container(
+              height: 8,
+              color: Colors.grey[200],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Text(
+                    "Aproveite as vantagens",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Conheça as opções de pagar, receber e transferir, tudo pelo app",
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    height: 150,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cardVantagens.length,
+                      itemBuilder: (context, position) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                          ),
+                          child: SizedBox(
+                            width: 160,
+                            child: Card(
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.green[100],
+                                highlightColor: Colors.green[100],
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 12,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Image.network(
+                                        'https://picsum.photos/50/50',
+                                      ),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Text(
+                                        cardVantagens.elementAt(position).title,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 8,
+              color: Colors.grey[200],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Compre créditos e aproveite",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.green[800],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Seja Gift Card, recarga ou cupom, encontre créditos para o que você precisa",
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    height: 170,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cardCompra.length,
+                      itemBuilder: (context, position) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                          ),
+                          child: SizedBox(
+                            width: 160,
+                            child: Card(
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.green[100],
+                                highlightColor: Colors.green[100],
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 12,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Image.network(
+                                        'https://picsum.photos/50/50',
+                                      ),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Text(
+                                        cardCompra.elementAt(position).title,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Text(
+                                        cardCompra
+                                            .elementAt(position)
+                                            .subtitle!,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 8,
+              color: Colors.grey[200],
+            ),
+            CardLancamentosWidget(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Site da loja com cashback",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.green[800],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Compre o que quiser no site da loja e ganhe cashback. Confira!",
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    height: 170,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cardLojasCashback.length,
+                      itemBuilder: (context, position) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                          ),
+                          child: SizedBox(
+                            width: 160,
+                            child: Card(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 12,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.network(
+                                      'https://picsum.photos/50/50',
+                                    ),
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+                                    Text(
+                                      cardLojasCashback
+                                          .elementAt(position)
+                                          .title,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+                                    OutlinedButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Conferir",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        primary: Colors.green,
+                                        backgroundColor: Colors.grey[200],
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(12),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 8,
+              color: Colors.grey[200],
+            ),
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return CardLancamentosWidget();
+              },
+            ),
           ],
         ),
       ),
